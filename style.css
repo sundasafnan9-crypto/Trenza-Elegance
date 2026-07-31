@@ -676,3 +676,16 @@ font-family:var(--font-body);
 outline:none;
 border-color:var(--clay);
 }
+/* CHECKOUT MODAL */
+
+.checkout-box input:focus,
+.checkout-box select:focus{
+    outline:none;
+    border-color:var(--clay);
+}
+
+/* 👇 Iske baad add karo */
+
+*{
+    outline:1px solid red;
+}
