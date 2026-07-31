@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trenza Elegence — Soft elegance, effortless style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- ================= LOGIN / REGISTER MODAL ================= -->
+<div class="auth-modal" id="authModal">
+  <div class="auth-box">
+    <button class="close-auth" onclick="toggleAuth()">&times;</button>
+    <!-- Login -->
+    <div class="login-form" id="loginForm">
+      <h2>Welcome Back</h2>
+      <p>Sign in to continue your Trenza Elegance journey.</p>
+      <form>
+        <input type="email" placeholder="Email Address" required>
+        <div class="password-box">
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <span class="eye" onclick="togglePassword('loginPassword',this)">
+            👁
+          </span>
+        </div>
+        <div class="forgot">
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button class="btn btn-primary btn-full">
+          Sign In
+        </button>
+      </form>
+      <div class="divider">
+        <span>OR</span>
+      </div>
+      <button class="google-btn">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg">
+        Continue with Google
+      </button>
+      <p class="switch-text">
+        Don't have an account?
+        <span onclick="showRegister()">
+          Create One
+        </span>
+      </p>
+    </div>
+    <!-- Register -->
+    <div class="register-form" id="registerForm">
+      <h2>Create Account</h2>
+      <p>Join Trenza Elegance today.</p>
+      <form>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <div class="password-box">
+          <input
+          type="password"
+          id="registerPassword"
+          placeholder="Password"
+          required>
+          <span class="eye"
+          onclick="togglePassword('registerPassword',this)">
+            👁
+          </span>
+        </div>
+        <button class="btn btn-primary btn-full">
+          Register
+        </button>
+      </form>
+      <div class="divider">
+        <span>OR</span>
+      </div>
+      <button class="google-btn">
+        <img src="https://www.svgrepo.com/show/475656/google-color.svg">
+        Continue with Google
+      </button>
+      <p class="switch-text">
+        Already have an account?
+        <span onclick="showLogin()">
+          Sign In
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="announce">Free shipping on orders over Rs 5,000 &mdash; new arrivals every Friday</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-box">
+    <button class="close-checkout" onclick="closeCheckout()">
+      &times;
+    </button>
+    <h2>Checkout</h2>
+    <p>Complete your order details</p>
+    <form onsubmit="placeOrder(event)">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <input type="text" placeholder="Shipping Address" required>
+      <input type="text" placeholder="City" required>
+      <select required>
+        <option value="">Payment Method</option>
+        <option>Cash on Delivery</option>
+        <option>Card Payment</option>
+      </select>
+      <button class="btn btn-primary btn-full">
+        Place Order
+      </button>
+    </form>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <button class="icon-btn menu-btn" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#home" class="logo">Trenza <em>Elegence</em></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#collections">Collections</a>
+      <a href="#products">Shop</a>
+      <a href="#story">Our story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-icons">
+      <button class="icon-btn" aria-label="Search" onclick="toggleSearch()"><i data-icon="search"></i></button>
+     <button class="icon-btn"aria-label="Account"onclick="toggleAuth()">
+      <i data-icon="user"></i>
+     </button>
+      <button class="icon-btn cart-btn" aria-label="Open cart" onclick="toggleCart()">
+        <i data-icon="bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="search-bar" id="searchBar">
+    <input type="text" placeholder="Search for dresses, scarves, jewellery...">
+    <button onclick="toggleSearch()">Close</button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <p class="eyebrow">The Essence of Trenza</p>
+      <h1>CURATED FOR HER</h1>
+      <p class="hero-sub">Grace isn't worn. It's felt.</p>
+      <p class="hero-desc">Curated women's fashion with soft tones, graceful details, and effortless sophistication.</p>
+      <a href="#products" class="btn btn-primary">Shop the collection</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card card-a"></div>
+      <div class="hero-card card-b"></div>
+      <div class="hero-card card-c"></div>
+    </div>
+  </section>
+
+  <section class="collections" id="collections">
+    <h2>Shop by collection</h2>
+    <div class="collection-grid">
+      <a class="collection-tile tile-dresses" href="#products" onclick="filterCategory('dresses')">
+        <span>Dresses</span>
+      </a>
+      <a class="collection-tile tile-accessories" href="#products" onclick="filterCategory('accessories')">
+        <span>Accessories</span>
+      </a>
+      <a class="collection-tile tile-knitwear" href="#products" onclick="filterCategory('knitwear')">
+        <span>Knitwear</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="products-head">
+      <h2>New arrivals</h2>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all" onclick="filterCategory('all')">All</button>
+        <button class="filter-btn" data-cat="dresses" onclick="filterCategory('dresses')">Dresses</button>
+        <button class="filter-btn" data-cat="accessories" onclick="filterCategory('accessories')">Accessories</button>
+        <button class="filter-btn" data-cat="knitwear" onclick="filterCategory('knitwear')">Knitwear</button>
+      </div>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="story-visual"></div>
+    <div class="story-text">
+      <p class="eyebrow">Our story</p>
+      <h2>Made to be worn, not just owned</h2>
+      <p>Trenza Elegence began as a small atelier working with a handful of weavers who cared as much about the drape of a fabric as its colour. Every piece is still cut in small batches, so what you order rarely looks the same twice.</p>
+      <p>We keep the palette quiet on purpose — blush, clay, and undyed cotton — so the pieces mix easily and last beyond a season.</p>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Join the list</h2>
+    <p>First look at new drops, one email a month, nothing else.</p>
+    <form class="newsletter-form" onsubmit="return subscribeNewsletter(event)">
+      <input type="email" required placeholder="you@email.com">
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <div>
+      <p class="logo footer-logo">Trenza <em>Elegence</em></p>
+      <p class="footer-tag">Soft elegance, effortless style.</p>
+    </div>
+    <div>
+      <p class="footer-heading">Shop</p>
+      <a href="#products">Dresses</a>
+      <a href="#products">Accessories</a>
+      <a href="#products">Knitwear</a>
+    </div>
+    <div>
+      <p class="footer-heading">Support</p>
+      <a href="#">Shipping and returns</a>
+      <a href="#">Size guide</a>
+      <a href="#">Contact us</a>
+    </div>
+    <div>
+      <p class="footer-heading">Follow</p>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+  <p class="footer-bottom">&copy; 2026 Trenza Elegence. All rights reserved.</p>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your bag</h3>
+    <button class="icon-btn" aria-label="Close cart" onclick="toggleCart()">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>Subtotal</span>
+      <span id="cartTotal">Rs 0</span>
+    </div>
+    <button class="btn btn-primary btn-full" onclick="checkout()">Checkout</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
